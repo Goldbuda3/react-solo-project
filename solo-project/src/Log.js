@@ -2,7 +2,9 @@ import React from 'react';
 import PO from "./PO";
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
+import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './App.css'
 
 class Log extends React.Component {
@@ -48,43 +50,58 @@ class Log extends React.Component {
         });
       }
 
-
-
     render() {
       return (
-        <div className="todoListMain">
-          
-          <div className="header">
+        <div className="logEntry">
+            <Card>
+            <Card.Header>Receiving Log</Card.Header>
+            <Card.Body>
+          <Form>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridPO">
+                <Form.Label>PO#</Form.Label>
+                <Form.Control type="interger" placeholder="ex: CCSE XXXXX" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridVendor">
+                <Form.Label>Vendor</Form.Label>
+                <Form.Control as="select">
+                  <option>Choose...</option>
+                  <option>Nike</option>
+                  <option>'47</option>
+                  <option>Mitchell & Ness</option>
+                  <option>New Era</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Label># of Boxes</Form.Label>
+                <Form.Control type="interger" placeholder="1, 2, 3, 4, ..." />
+              </Form.Group>
+              <Form.Group>
+              <Form.Label>Date</Form.Label>
+              <Form.Control type="date"controlId="formGridDate"></Form.Control>
+              </Form.Group>
+            </Form.Row>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNotes">
+                <Form.Label>Notes</Form.Label>
+                <Form.Control type="text" placeholder="Item Description, Damaged Product, etc..." />
+              </Form.Group>
+            </Form.Row>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+          </Card.Body>
             <form onSubmit={this.addItem}>
               <input ref={(a) => this._inputElement = a} placeholder="PO #">
               </input>
               <button type="submit">add</button>
             </form>
-          </div>
+            </Card>
           <PO entries={this.state.items}
                      delete={this.deleteItem}/>
-          <Card>
-          <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-          </Card>
+          
         </div>
       );
     }
