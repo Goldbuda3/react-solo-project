@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './App.css'
 
 class Log extends React.Component {
@@ -54,7 +53,7 @@ class Log extends React.Component {
       return (
         <div className="logEntry">
             <Card>
-            <Card.Header>Receiving Log</Card.Header>
+            <Card.Header>Log Entry</Card.Header>
             <Card.Body>
           <Form>
             <Form.Row>
@@ -62,7 +61,6 @@ class Log extends React.Component {
                 <Form.Label>PO#</Form.Label>
                 <Form.Control type="interger" placeholder="ex: CCSE XXXXX" />
               </Form.Group>
-
               <Form.Group as={Col} controlId="formGridVendor">
                 <Form.Label>Vendor</Form.Label>
                 <Form.Control as="select">
@@ -98,10 +96,10 @@ class Log extends React.Component {
               </input>
               <button type="submit">add</button>
             </form>
-            </Card>
+          
           <PO entries={this.state.items}
                      delete={this.deleteItem}/>
-          
+                       </Card>
         </div>
       );
     }

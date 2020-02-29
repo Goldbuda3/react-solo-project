@@ -1,7 +1,6 @@
 import React from 'react';
 import FlipMove from "react-flip-move";
 import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 class PO extends React.Component {
     
@@ -29,10 +28,6 @@ class PO extends React.Component {
         <ul className="theList">
           <FlipMove duration={250} easing="ease-out">
             {listItems}
-            <ButtonGroup aria-label="Update/Delete">
-              <Button variant="secondary">Update</Button>
-              <Button variant="secondary">Remove</Button>
-            </ButtonGroup>
           </FlipMove>
         </ul>
       );
